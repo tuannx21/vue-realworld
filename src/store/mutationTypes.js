@@ -1,0 +1,6 @@
+export const ARTICLE_LOAD = 'ARTILE_LOAD'
+export const AUTHENTIC = 'AUTHENTIC'
+export const UNAUTHENTIC = 'UNAUTHENTIC'
+export const TAG_LOAD = 'TAG_LOAD'
+export const PROFILE_LOAD = 'PROFILE_LOAD'
+export const AUTH_UPDATE = 'AUTH_UPDATE'

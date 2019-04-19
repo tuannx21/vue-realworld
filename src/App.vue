@@ -1,28 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <TheHeader />
+    <router-view></router-view>
+    <TheFooter />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TheHeader from './components/Header.vue';
+import TheFooter from './components/Footer.vue';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    TheHeader,
+    TheFooter
+  },
+  methods: {
+    ...mapActions('article',['fetchArticles']),
+    ...mapActions('auth',['loadAuthenticedUser']),
+    ...mapActions('tag',['fetchTags'])
+  },
+  mounted() {
+    this.fetchArticles()
+    this.fetchTags()
+    this.loadAuthenticedUser()
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
